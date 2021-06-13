@@ -1,0 +1,51 @@
+{% extends 'webapp/index.html' %}
+{% block content %}
+{% load static %}
+	<section class="sub-header" style="background-image:linear-gradient(rgba(30,30,30,0.7),rgba(30,30,30,0.7)),url('{% static 'images/webapp/background.jpg' %}');">
+		<nav>
+			<a href="{% url 'home' %}"><img class="logo" src="{% static 'images/webapp/logo.png' %}"></a>
+			<div class="nav-links" id="nav_links">
+				<i class="fa fa-times" onclick="hideMenu()"></i>
+				<ul>
+					<li><a href="{% url 'home' %}">HOME</a></li>
+					<li><a href="{% url 'about' %}">ABOUT</a></li>
+					<li><a href="{% url 'course' %}">COURSE</a></li>
+					<li><a href="{% url 'contact' %}">CONTACT ME</a></li>
+				</ul>
+			</div>
+			<i id="bars" class="fa fa-bars" onclick="showMenu()"></i>
+		</nav>
+		<h1>About</h1>
+	</section>
+	<section class="about">
+		<div class="about-row">
+			<p>
+				My aim is to teach some awesome courses from scratch with free of cost.
+				I will teach courses in two different languages.
+				Learning is key to success.
+			</p>
+		</div>
+	</section>
+    <section class="footer">
+		<h4>About</h4>
+		<p>Learn some awesome courses from here with free of cost<br>Follow me on social media</p>
+		<div class="icons">
+			<a href="https://www.linkedin.com/in/mowneeshkumar/"><i class="fa fa-linkedin-square fa-2x"></i></a>
+			<a href="https://github.com/mowneeshkumar"><i class="fa fa-github fa-2x"></i></a>
+			<a href="https://www.instagram.com/mowneesh17/"><i class="fa fa-instagram fa-2x"></i></a>
+			<a href="https://www.facebook.com/mowneesh17"><i class="fa fa-facebook fa-2x"></i></a>
+		</div>
+        <p>Made with <i class="fa fa-heart-o"></i> by Mowneesh</p>
+    </section>
+	<script>
+		navLinks=document.getElementById("nav_links");
+		function showMenu()
+		{
+			navLinks.style.right="0";
+		}
+		function hideMenu()
+		{
+			navLinks.style.right="-200px";
+		}
+	</script>
+{% endblock %}

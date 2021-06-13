@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+{% load static %}
+<head>
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<title>INVESTYOURTIME</title>
+	<link rel="stylesheet" href="{% static 'css/webapp/style.css' %}">
+	<link rel="shortcut icon" href="{% static 'images/webapp/favicon.png' %}">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+</head>
+<body>
+	{% block content %}
+	<section class="header" style="background-image:linear-gradient(rgba(1,1,30,0.7),rgba(1,1,30,0.7)),url('{% static 'images/webapp/time.jpg' %}');">
+		<nav>
+			<a href="{% url 'home' %}"><img class="logo" src="{% static 'images/webapp/logo.png' %}"></a>
+			<div class="nav-links" id="nav_links">
+				<i class="fa fa-times" onclick="hideMenu()"></i>
+				<ul>
+					<li><a href="{% url 'home' %}">HOME</a></li>
+					<li><a href="{% url 'about' %}">ABOUT</a></li>
+					<li><a href="{% url 'course' %}">COURSE</a></li>
+					<li><a href="{% url 'contact' %}">CONTACT ME</a></li>
+				</ul>
+			</div>
+			<i id="bars" class="fa fa-bars" onclick="showMenu()"></i>
+		</nav>
+		<div class="text-box">
+			<h1>InVeSt YoUr TiMe</h1>
+			<p>Welcome to my website you should invest your time here to learn more</p>
+            <span id="insert-time"></span>
+		</div>
+	</section>
+	<section class="course">
+		<h1>Courses I am offer</h1>
+		<p>Some basic courses every coder should know</p>
+		<div class="course-row">
+			<div class="course-col">
+				<h3>HTML</h3>
+				<p>Learn HTML crash course from scratch</p>
+			</div>
+			<div class="course-col">
+				<h3>CSS</h3>
+				<p>Learn CSS crash course from scratch</p>
+			</div>
+			<div class="course-col">
+				<h3>JAVASCRIPT</h3>
+				<p>Learn JavaScript crash course from scratch</p>
+			</div>
+		</div>
+		<div class="course-row">
+			<div class="course-col1 course-col">
+				<h3>CORE PYTHON</h3>
+				<p>Learn core python crash course from scratch</p>
+			</div>
+			<div class="course-col1 course-col">
+				<h3>PYTHON-DJANGO</h3>
+				<p>Learn python-django crash course from scratch</p>
+			</div>
+		</div>
+        <a href="{% url 'course' %}" class="course-btn">Register Here</a>
+	</section>
+    <section class="example">
+		<h1>Example Projects</h1>
+		<p>These are some projects which i did in personally</p>
+        <div class="example-row">
+			<div class="example-col">
+                <img src="{% static 'images/webapp/flycycle.jpg' %}">
+				<h3>GAME CREATION</h3>
+				<p>
+					This is the simple game which i created using python. At the end
+					of my courses you will also able to create own projects like this.
+				</p>
+			</div>
+			<div class="example-col">
+                <img src="{% static 'images/webapp/MIV.jpg' %}">
+				<h3>SOFTWARE CREATION</h3>
+				<p>
+					This is the multimedia software which i created using python.
+					At the end of my courses you will also able to
+                    create own projects like this.
+				</p>
+			</div>
+		</div>
+    </section>
+	<section class="contact" style="background-image:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url('{% static 'images/webapp/contact.jpg' %}');">
+		<h1>Enroll For My Various Online Courses <br> Anywhere From The World</h1>
+        <a href="{% url 'contact' %}" class="contact-btn">CONTACT ME</a>
+	</section>
+    <section class="footer">
+		<h4>About</h4>
+        <p>Learn some awesome courses from here with free of cost<br>Follow me on social media</p>
+		<div class="icons">
+			<a href="https://www.linkedin.com/in/mowneeshkumar/"><i class="fa fa-linkedin-square fa-2x"></i></a>
+			<a href="https://github.com/mowneeshkumar"><i class="fa fa-github fa-2x"></i></a>
+			<a href="https://www.instagram.com/mowneesh17/"><i class="fa fa-instagram fa-2x"></i></a>
+			<a href="https://www.facebook.com/mowneesh17"><i class="fa fa-facebook fa-2x"></i></a>
+		</div>
+		<p>Made with <i class="fa fa-heart-o"></i> by Mowneesh</p>
+    </section>
+	<script>
+		navLinks=document.getElementById("nav_links");
+		function showMenu()
+		{
+			navLinks.style.right="0";
+		}
+		function hideMenu()
+		{
+			navLinks.style.right="-200px";
+		}
+		/*---------------------include time-----------------------------*/
+		function time()
+		{
+			date=new Date();
+			x=document.getElementById("insert-time");
+			time=date.toLocaleTimeString();
+			x.innerHTML=time;
+		}
+		setInterval(time,1000)
+        </script>
+	{% endblock %}
+</body>
+</html>
